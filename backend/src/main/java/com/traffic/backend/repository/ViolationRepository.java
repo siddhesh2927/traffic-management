@@ -48,8 +48,8 @@ public interface ViolationRepository extends JpaRepository<Violation, Long> {
     boolean existsByLicensePlate(String licensePlate);
 
     /**
-     * Find recent violations ordered by creation time (calling service should limit results)
+     * Find recent violations ordered by creation time with pagination
      */
     @Query("SELECT v FROM Violation v ORDER BY v.createdAt DESC")
-    List<Violation> findRecentViolations();
+    List<Violation> findRecentViolations(org.springframework.data.domain.Pageable pageable);
 }

@@ -5,6 +5,7 @@ import com.traffic.backend.model.VehicleEvent;
 import com.traffic.backend.repository.ViolationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.PageRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -100,10 +101,7 @@ public class TrafficService {
      * Get recent violations
      */
     public List<Violation> getRecentViolations(int limit) {
-        return violationRepository.findRecentViolations()
-            .stream()
-            .limit(limit)
-            .toList();
+        return violationRepository.findRecentViolations(PageRequest.of(0, limit));
     }
 
     /**

@@ -30,6 +30,7 @@ public class Violation {
     private Double fineAmount;
     
     @Column(name = "violation_time")
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
 
     // Constructors
