@@ -17,7 +17,6 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/violations")
-@CrossOrigin(origins = "http://localhost:5173")
 public class ViolationController {
 
     @Autowired
